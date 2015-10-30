@@ -1,0 +1,32 @@
+{
+  "name": "kobe-opendata-mobile",
+  "version": "0.0.0",
+  "authors": [
+    "Yusuke Mukai <opposite0302@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5"
+  },
+  "exportsOverride": {
+    "bootstrap": {
+      "js": "**/bootstrap.min.js",
+      "css": "**/bootstrap.min.css"
+    },
+    "jquery": {
+      "js": "**/jquery.min.js"
+    }
+  }
+}

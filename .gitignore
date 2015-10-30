@@ -1,0 +1,12 @@
+# Cordova
+platforms
+plugins
+.log
+www/lib
+
+# Node
+node_modules
+
+# Bower
+bower_components
+www/lib

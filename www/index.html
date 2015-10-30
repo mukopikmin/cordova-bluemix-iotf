@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <script type="text/javascript" src="lib/jquery/js/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/browserMqtt.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/sensor.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Hello World</title>
+  </head>
+  <body>
+    <div class="app">
+      <button class="btn btn-block btn-primary btn-lg" id="publish">Acquire sensor data</button>
+      <h3>Device Info</h3>
+      <table class="table">
+        <tr>
+          <td>Available</td>
+          <td id="available"></td>
+        </tr>
+        <tr>
+          <td>Platform</td>
+          <td id="platform"></td>
+        </tr>
+        <tr>
+          <td>Version</td>
+          <td id="version"></td>
+        </tr>
+        <tr>
+          <td>UUID</td>
+          <td id="uuid"></td>
+        </tr>
+        <tr>
+          <td>Cordova</td>
+          <td id="cordovaVersion"></td>
+        </tr>
+        <tr>
+          <td>Model</td>
+          <td id="model"></td>
+        </tr>
+        <tr>
+          <td>Manufacture</td>
+          <td id="manufacturer"></td>
+        </tr>
+      </table>
+      <h3>Connection setting</h3>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>Organization ID</td>
+            <td>
+              <input type="text" id="org" class="form-control">
+            </td>
+          </tr>
+          <tr>
+            <td>Device type</td>
+            <td>
+              <input type="text" id="deviceType" class="form-control">
+            </td>
+          </tr>
+          <tr>
+            <td>Auth token</td>
+            <td>
+              <input type="text" id="token" class="form-control">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-block btn-info" id="save">Save settings</button>
+      <h3>Sensor</h3>
+      <table class="table">
+        <tr>
+          <td rowspan="8">GPS</td>
+          <td>Latitude</td>
+          <td id="latitude"></td>
+        </tr>
+        <tr>
+          <td>Longitude</td>
+          <td id="longitude"></td>
+        </tr>
+        <tr>
+          <td>Accuracy</td>
+          <td id="accuracy"></td>
+        </tr>
+        <tr>
+          <td>Altitude</td>
+          <td id="altitude"></td>
+        </tr>
+        <tr>
+          <td>Altitude accuracy</td>
+          <td id="altitudeAccuracy"></td>
+        </tr>
+        <tr>
+          <td>Heading</td>
+          <td id="heading"></td>
+        </tr>
+        <tr>
+          <td>Speed</td>
+          <td id="speed"></td>
+        </tr>
+        <tr>
+          <td>Timestamp</td>
+          <td id="gpsTimestamp"></td>
+        </tr>
+        <tr>
+          <td rowspan="4">Acceleration</td>
+          <td>X</td>
+          <td id="x"></td>
+        </tr>
+        <tr>
+          <td>Y</td>
+          <td id="y"></td>
+        </tr>
+        <tr>
+          <td>Z</td>
+          <td id="z"></td>
+        </tr>
+        <tr>
+          <td>Timestamp</td>
+          <td id="accelerationTimestamp"></td>
+        </tr>
+      </table>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+      config.display();
+      $(function() {
+        $("#save").on('click', function() {
+          if (window.confirm('Override current settings, OK?')) {
+            config.save();
+          }
+        });
+        $("#publish").on('click', function() {
+          sensor.get();
+        });
+      });
+    </script>
+  </body>
+</html>
