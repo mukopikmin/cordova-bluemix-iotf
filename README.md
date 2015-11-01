@@ -81,9 +81,10 @@ Create mqtt module.
 ```
 cd node_modules/mqtt
 npm install .
-browserify
+browserify mqtt.js -s mqtt > browserMqtt.js
 ```
 
+Move `browserMqtt.js` to `www/lib` directory.
 
 ## LICENSE
 
