@@ -11,39 +11,24 @@ var sensor = {
         password: params.token
       }
     );
-    var payload = {
-      "d": data,
-      "ts": sensor.timestamp()
-    };
-    client.publish("iot-2/evt/itemsvc/fmt/json", JSON.stringify(payload));
-  },
-
-  get: function() {
-    var data = {
-      number: Math.floor( Math.random() * 11 ),
-      device: sensor.deviceInfo()
-    };
-    sensor.gps(function(position) {
-      sensor.accelerometer(function(acceleration) {
-        data.gps = position;
-        data.acceleration = acceleration;
-        if (data.gps != null) {
-          $("#latitude").text(data.gps.latitude);
-          $("#longitude").text(data.gps.longitude);
-          $("#acuracy").text(data.gps.accuracy);
-          $("#altitude").text(data.gps.altitude);
-          $("#altitudeAccuracy").text(data.gps.altitudeAccuracy);
-          $("#heading").text(data.gps.heading);
-          $("#speed").text(data.gps.speed);
-          $("#gpsTimestamp").text(data.gps.timestamp);
-        }
-        if (data.acceleration != null) {
-          $("#x").text(data.acceleration.x);
-          $("#y").text(data.acceleration.y);
-          $("#z").text(data.acceleration.z);
-          $("#accelerationTimestamp").text(data.acceleration.timestamp);
-        }
-        sensor.publish(data);
+    geolocation.get(function(geolocation) {
+      accelerometer.get(function(accelerometer) {
+        console.log("publihed");
+        client.publish(
+          "iot-2/evt/itemsvc/fmt/json",
+          JSON.stringify({
+            "d": {
+              device: sensor.deviceInfo(),
+              geolocation: geolocation,
+              accelerometer: accelerometer
+            },
+            "ts": sensor.timestamp()
+          }),
+          function() {
+            console.log("disconnected")
+            client.end();
+          }
+        );
       });
     });
   },
@@ -53,53 +38,6 @@ var sensor = {
       return device;
     } catch (e) {
       return null;
-    }
-  },
-
-  gps: function(callback) {
-    try {
-      var options = {
-        timeout: 10000,
-        enableHighAccuracy: true,
-        maximumAge: 0
-      };
-      navigator.geolocation.getCurrentPosition(
-        function(position) {
-          var gps = {};
-          gps.latitude = position.coords.latitude;
-          gps.longitude = position.coords.longitude;
-          gps.accuracy = position.coords.accuracy;
-          gps.altitude = position.coords.altitude;
-          gps.altitudeAccuracy = position.coords.altitudeAccuracy;
-          gps.heading = position.coords.heading;
-          gps.speed = position.coords.speed;
-          gps.timestamp = position.timestamp;
-          callback(gps);
-        },
-        function(error) {
-          callback(error);
-        },
-        options
-      );
-    } catch(e) {
-      callback(null);
-    }
-  },
-
-  accelerometer: function(callback) {
-    try {
-      navigator.accelerometer.getCurrentAcceleration(
-        function(acceleration) {
-          callback(acceleration);
-        },
-        function() {
-          callback({
-            error: 'error'
-          });
-        }
-      );
-    } catch(e) {
-      callback(null);
     }
   },
 

@@ -12,14 +12,27 @@
     <script type="text/javascript" src="lib/browserMqtt.js"></script>
     <script type="text/javascript" src="js/config.js"></script>
     <script type="text/javascript" src="js/sensor.js"></script>
+    <script type="text/javascript" src="js/geolocation.js"></script>
+    <script type="text/javascript" src="js/accelerometer.js"></script>
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <title>Hello World</title>
   </head>
   <body>
     <div class="app">
-      <button class="btn btn-block btn-primary btn-lg" id="publish">Acquire sensor data</button>
-      <h3>Device Info</h3>
+      <button class="btn btn-block btn-primary" id="publish">Acquire sensor data</button>
+      <button class="btn btn-block btn-primary" id="disconnect">Disconnect</button>
+
+      <div class="row">
+        <div class="col-xs-6">
+          <button class="btn btn-block btn-primary" id="start">Start publishing</button>
+        </div>
+        <div class="col-xs-6">
+          <button class="btn btn-block btn-primary" id="stop">Stop publishing</button>
+        </div>
+      </div>
+      <div id="log" class="row"></div>
+
       <table class="table">
         <tr>
           <td>Available</td>
@@ -131,6 +144,7 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script>
+      var publishSwitch;
       config.display();
       $(function() {
         $("#save").on('click', function() {
@@ -139,9 +153,19 @@
           }
         });
         $("#publish").on('click', function() {
-          sensor.get();
+          sensor.publish();
+        });
+        $("#disconnect").on('click', function() {
+          sensor.disconnect();
+        });
+        $("#start").on('click', function() {
+          publishSwitch = setInterval("sensor.publish()",3000);
+        });
+        $("#stop").on('click', function() {
+          clearInterval(publishSwitch);
         });
       });
+
     </script>
   </body>
 </html>

@@ -76,3 +76,9 @@ browserify
 ## LICENSE
 
 MIT License
+
+
+## References
+
+mqttjs/MQTT.js
+https://github.com/mqttjs/MQTT.js#end
