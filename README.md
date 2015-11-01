@@ -34,7 +34,7 @@ Although not tested on these platforms, this app will also work on.
 
 ### Install app
 
-This instruction is only for android.
+This instruction is only for android.  
 If you want to install into iOS device, build source code in this repository.
 
 ### Register app
@@ -93,14 +93,14 @@ MIT License
 
 ## References
 
-mqttjs/MQTT.js
+mqttjs/MQTT.js  
 https://github.com/mqttjs/MQTT.js#end
 
-apache/cordova-plugin-device
+apache/cordova-plugin-device  
 https://github.com/apache/cordova-plugin-device
 
-apache/cordova-plugin-geolocation
+apache/cordova-plugin-geolocation  
 https://github.com/apache/cordova-plugin-geolocation
 
-apache/cordova-plugin-device-motion
+apache/cordova-plugin-device-motion  
 https://github.com/apache/cordova-plugin-device-motion
