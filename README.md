@@ -13,7 +13,7 @@ In default source code, this app publishes sensor data to Bluemix once every 3 s
 
 ## Download Installer for Android
 
-For android, APK file can be downloaded from [here](docs/cordova-sensor.apk).
+For android, APK file can be downloaded from [here](https://github.com/mukopikmin/cordova-bluemix-iotf/raw/master/docs/cordova-sensor.apk).
 
 
 ## Supported platforms
@@ -47,7 +47,7 @@ This instruction is only for android.
 If you want to install into iOS device, build source code in this repository.
 
 1. From settings, cofirm "Unknown source" is checked.
-2. Download installer from [download section](# Download Installer for Android).
+2. Download installer from [download section](#download-installer-for-android).
 3. Confirm screen will appear, and tap "INSTALL".
 4. App will appear in drawer.
 
