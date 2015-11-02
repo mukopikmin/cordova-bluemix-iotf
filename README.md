@@ -8,9 +8,12 @@ Following data is published.
 * Accelaration
 * GPS
 
-## Download binary
+In default source code, this app publishes sensor data to Bluemix once every 3 seconds.
 
-For android, apk file can be downloaded from here soon.
+
+## Download Installer for Android
+
+For android, APK file can be downloaded from [here](mukopikmin/cordova-bluemix-iotf/master/docs/cordova-sensor.apk).
 
 
 ## Supported platforms
@@ -19,7 +22,7 @@ Following platform is verified to work.
 
 * Android
 
-Although not tested on these platforms, this app will also work on.
+Although not tested, this app will work on these platforms.
 
 * Amazon Fire OS
 * BlackBerry 10
@@ -32,18 +35,35 @@ Although not tested on these platforms, this app will also work on.
 
 ## Usage
 
+### Preparement in Bluemix
+
+1. Create Internet of Things Service.
+2. Open dashboard of the Intenet of Thinds service.
+3. Create device type.
+
 ### Install app
 
 This instruction is only for android.  
 If you want to install into iOS device, build source code in this repository.
 
+1. From settings, cofirm "Unknown source" is checked.
+2. Download installer from [download section](## Download Installer for Android).
+3. Confirm screen will appear, and tap "INSTALL".
+4. App will appear in drawer.
+
 ### Register app
 
-Writing now...
+1. Start this app, and you will see information of your own device.
+2. Copy UUID of the device.
+3. Open the dashboard of the Internet of Things servicein Bluemix.
+4. Register your device by using copoed UUID.
+5. If you finished registring the device, device auth info will be displayed. Copy the auth token.
 
 ### Publish data
 
-Writing now...
+1. Start this app.
+2. Input organization ID (stored in VCAP_SERIVICES), device type (you created in preparement) and device UUID (copied when registering device).
+3. Save settings by tapping "Save" button.
 
 
 ## Development

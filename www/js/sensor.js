@@ -2,7 +2,15 @@ var sensor = {
 
   publish: function(data) {
     var params = config.load();
-    var deviceId = sensor.deviceInfo().uuid;
+    // var deviceId = sensor.deviceInfo().uuid;
+
+    var deviceId = 'a3e243545d9990df';
+    params = {
+      org: 'g86hp5',
+      deviceType: 'Cordova',
+      token: 'QhKF7SUWVA)UIXkSXD'
+    };
+
     var client = mqtt.connect(
       "tcp://" + params.org + ".messaging.internetofthings.ibmcloud.com:1883",
       {
