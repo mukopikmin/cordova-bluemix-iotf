@@ -12,8 +12,6 @@
     "browserify": "^11.2.0",
     "grunt": "^0.4.5",
     "grunt-bower-task": "^0.4.0",
-    "grunt-browserify": "^4.0.1",
-    "grunt-cordova-cli": "^0.1.0",
     "mqtt": "^1.4.3"
   }
 }

@@ -13,12 +13,6 @@ module.exports = function (grunt) {
           cleanBowerDir: true
         }
       }
-    },
-    browserify: {
-      dist: {
-        src: 'node_modules/mqtt/mqtt.js',
-        dest: 'www/lib/mqtt/mqtt.js'
-      }
     }
   });
 
@@ -26,7 +20,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-browserify');
 
   grunt.registerTask('default', [
-    'bower:install',
-    'browserify:dist'
+    'bower:install'
   ]);
 };
