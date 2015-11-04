@@ -31,35 +31,43 @@
       </div>
       <div id="log" class="row"></div>
 
-      <!-- <h3>Device Information</h3>
+      <h3>Device Information</h3>
       <table class="table">
-        <tr>
+        <!-- <tr>
           <td>Available</td>
           <td id="available"></td>
-        </tr>
+        </tr> -->
         <tr>
           <td>Platform</td>
-          <td id="platform"></td>
+          <td>
+            <span class="platform"></span>
+            <span> </span>
+            <span class="version"></span>
+          </td>
         </tr>
-        <tr>
+        <!-- <tr>
           <td>Version</td>
           <td id="version"></td>
-        </tr>
+        </tr> -->
         <tr>
           <td>UUID</td>
           <td id="uuid"></td>
         </tr>
-        <tr>
+        <!-- <tr>
           <td>Cordova</td>
           <td id="cordovaVersion"></td>
-        </tr>
-        <tr>
+        </tr> -->
+        <!-- <tr>
           <td>Model</td>
           <td id="model"></td>
-        </tr>
+        </tr> -->
         <tr>
-          <td>Manufacture</td>
-          <td id="manufacturer"></td>
+          <td>Model</td>
+          <td id="manufacturer">
+            <span class="manufacture"></span>
+            <span> </span>
+            <span class="model"></span>
+          </td>
         </tr>
       </table>
       <h3>Connection setting</h3>
@@ -86,7 +94,7 @@
         </tbody>
       </table>
       <button class="btn btn-block btn-info" id="save">Save settings</button>
-      <h3>Sensor</h3>
+      <!-- <h3>Sensor</h3>
       <table class="table">
         <tr>
           <td rowspan="8">GPS</td>

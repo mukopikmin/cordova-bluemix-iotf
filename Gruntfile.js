@@ -17,7 +17,6 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-bower-task');
-  grunt.loadNpmTasks('grunt-browserify');
 
   grunt.registerTask('default', [
     'bower:install'
